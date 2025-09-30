@@ -439,7 +439,7 @@ export default function Portfolio() {
           onClick={() => setResumeOpen(false)}
         >
           <div
-            className="relative max-w-5xl w-[92vw] max-h-[88vh] bg-[#0d0d0d] rounded-lg border border-[#00ff88]/30 shadow-[0_0_30px_rgba(0,255,136,0.25)] overflow-hidden"
+            className="relative max-w-5xl w-[96vw] max-h-[92vh] bg-[#0d0d0d] rounded-lg border border-[#00ff88]/30 shadow-[0_0_30px_rgba(0,255,136,0.25)] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#00ff88]/20">
@@ -452,16 +452,18 @@ export default function Portfolio() {
                 Close
               </button>
             </div>
+
             <div className="p-3 overflow-auto">
               <img
                 src="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
                 alt="Resume - SUDARSANA NARAYANAN U R"
-                className="w-full h-auto select-none"
+                className="mx-auto h-auto w-full max-w-full md:max-w-[80vw] lg:max-w-[70vw] max-h-[78vh] object-contain select-none"
                 draggable={false}
               />
             </div>
+
             <div className="flex items-center justify-between gap-2 px-4 py-2 border-t border-[#00ff88]/20 text-xs text-gray-400">
-              <span>Tip: Pinch to zoom on touch devices, or use browser zoom.</span>
+              <span>Tip: Use pinch or browser zoom. Scroll to view full page if needed.</span>
               <a
                 href="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
                 target="_blank"
