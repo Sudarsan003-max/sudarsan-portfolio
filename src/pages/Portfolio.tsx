@@ -58,7 +58,7 @@ export default function Portfolio() {
       <HeroSection />
 
       {/* About Section */}
-      <section className="relative py-24 px-4">
+      <section className="relative py-24 px-4" id="about">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -82,7 +82,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section className="relative py-24 px-4 bg-[#111111]/50">
+      <section className="relative py-24 px-4 bg-[#111111]/50" id="skills">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -139,7 +139,7 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section className="relative py-24 px-4">
+      <section className="relative py-24 px-4" id="experience">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -200,7 +200,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section className="relative py-24 px-4 bg-[#111111]/50">
+      <section className="relative py-24 px-4 bg-[#111111]/50" id="projects">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -224,7 +224,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section className="relative py-24 px-4">
+      <section className="relative py-24 px-4" id="education">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -262,7 +262,7 @@ export default function Portfolio() {
       </section>
 
       {/* Certifications Section */}
-      <section className="relative py-24 px-4 bg-[#111111]/50">
+      <section className="relative py-24 px-4 bg-[#111111]/50" id="certifications">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -306,7 +306,7 @@ export default function Portfolio() {
       </section>
 
       {/* Volunteering Section */}
-      <section className="relative py-24 px-4">
+      <section className="relative py-24 px-4" id="volunteering">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -337,7 +337,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section className="relative py-24 px-4 bg-[#111111]/50">
+      <section className="relative py-24 px-4 bg-[#111111]/50" id="contact">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}

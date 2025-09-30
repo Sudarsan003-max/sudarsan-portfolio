@@ -119,6 +119,8 @@
   * {
     @apply border-border outline-ring/50;
     letter-spacing: 0em;
+    /* Enable smooth scroll globally */
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
@@ -133,4 +135,9 @@
   .font-mono {
     font-family: Menlo, "Courier New", monospace;
   }
+}
+
+/* Add scroll margin so anchored sections aren't flush against top */
+section[id] {
+  scroll-margin-top: 96px;
 }

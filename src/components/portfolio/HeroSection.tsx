@@ -9,6 +9,7 @@ export function HeroSection() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
+      id="hero"
     >
       {/* Animated grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -83,6 +84,18 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               className="border-[#0088ff] text-[#0088ff] hover:bg-[#0088ff]/10 shadow-[0_0_20px_rgba(0,136,255,0.3)] hover:shadow-[0_0_30px_rgba(0,136,255,0.5)] transition-all"
+              onClick={() => {
+                const el = document.querySelector("#projects");
+                el?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              <ChevronDown className="mr-2 h-5 w-5" />
+              Explore Projects
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-[#ff0080] text-[#ff0080] hover:bg-[#ff0080]/10 shadow-[0_0_20px_rgba(255,0,128,0.3)] hover:shadow-[0_0_30px_rgba(255,0,128,0.5)] transition-all"
               onClick={() => window.open("https://github.com/Sudarsan003-max", "_blank")}
             >
               <Github className="mr-2 h-5 w-5" />
