@@ -36,7 +36,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       >
         <CardHeader>
           <div className="flex items-start justify-between gap-2 mb-2">
-            <CardTitle className="text-xl" style={{ color }}>{project.title}</CardTitle>
+            <CardTitle className="text-xl font-bold tracking-tight" style={{ color }}>{project.title}</CardTitle>
             <Badge 
               variant="outline" 
               className="text-xs shrink-0"
@@ -49,7 +49,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               {project.date}
             </Badge>
           </div>
-          <CardDescription className="text-sm text-gray-400">
+          <CardDescription className="text-sm text-gray-300 font-semibold">
             {project.category}
           </CardDescription>
         </CardHeader>

@@ -25,7 +25,7 @@ export function SkillCard({ icon, title, skills, color }: SkillCardProps) {
         <CardHeader>
           <div className="flex items-center gap-3 mb-2">
             <div style={{ color }}>{icon}</div>
-            <CardTitle className="text-lg" style={{ color }}>{title}</CardTitle>
+            <CardTitle className="text-lg font-bold tracking-tight" style={{ color }}>{title}</CardTitle>
           </div>
         </CardHeader>
         <CardContent>

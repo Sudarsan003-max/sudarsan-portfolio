@@ -53,7 +53,7 @@ export function HeroSection() {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-semibold">
             Final-year B.Tech CSE (AI & ML) student specializing in building AI-powered applications, 
             AR experiences, and blockchain solutions
           </p>

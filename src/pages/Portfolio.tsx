@@ -66,7 +66,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-12 text-center">
+            <h2 className="text-5xl font-extrabold mb-12 text-center tracking-tight">
               <span className="text-[#00ff88]">About</span> Me
             </h2>
             
@@ -90,7 +90,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-12 text-center">
+            <h2 className="text-5xl font-extrabold mb-12 text-center tracking-tight">
               <span className="text-[#0088ff]">Skills</span> & Expertise
             </h2>
 
@@ -147,7 +147,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-12 text-center">
+            <h2 className="text-5xl font-extrabold mb-12 text-center tracking-tight">
               <span className="text-[#ff0080]">Experience</span>
             </h2>
 
@@ -202,7 +202,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-12 text-center">
+            <h2 className="text-5xl font-extrabold mb-12 text-center tracking-tight">
               <span className="text-[#00ff88]">Featured</span> Projects
             </h2>
 
@@ -226,7 +226,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-12 text-center">
+            <h2 className="text-5xl font-extrabold mb-12 text-center tracking-tight">
               <span className="text-[#0088ff]">Education</span>
             </h2>
 
@@ -264,7 +264,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-12 text-center">
+            <h2 className="text-5xl font-extrabold mb-12 text-center tracking-tight">
               <span className="text-[#ff0080]">Certifications</span> & Achievements
             </h2>
 
@@ -308,7 +308,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-12 text-center">
+            <h2 className="text-5xl font-extrabold mb-12 text-center tracking-tight">
               <span className="text-[#00ff88]">Volunteering</span>
             </h2>
 
@@ -339,10 +339,10 @@ export default function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-8">
+            <h2 className="text-5xl font-extrabold mb-8 tracking-tight">
               <span className="text-[#0088ff]">Let's</span> Connect
             </h2>
-            <p className="text-xl text-gray-400 mb-12">
+            <p className="text-xl text-gray-300 mb-12 font-semibold">
               Interested in collaborating or have a project in mind? Let's talk!
             </p>
 
