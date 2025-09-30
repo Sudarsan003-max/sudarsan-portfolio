@@ -57,10 +57,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     };
   }, []);
 
-  // Add: flags for specific projects
-  const isBlockchain = project.id === "blockchain-bounty";
-  const isFaceMask = project.id === "face-mask-detection";
-
   return (
     <motion.div
       ref={ref}
@@ -78,57 +74,24 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           boxShadow: `0 0 20px ${color}20`
         }}
       >
-        {/* Add: subtle animated accent for Blockchain project (circuit sweep) */}
-        {isBlockchain && (
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-10"
-            style={{
-              background:
-                "repeating-linear-gradient(90deg, rgba(0,136,255,0.25) 0px, rgba(0,136,255,0.25) 1px, transparent 1px, transparent 8px)",
-              maskImage:
-                "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
-            }}
-            animate={{ x: ["-10%", "110%"] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          />
-        )}
-
-        {/* Add: subtle scan-line pulse for Face Mask project */}
-        {isFaceMask && (
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to bottom, transparent 0%, rgba(0,255,136,0.08) 50%, transparent 100%)"
-            }}
-            animate={{ y: ["-100%", "100%"] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        )}
-
-        {/* Header: adjust animation based on project */}
+        {/* Unified subtle animated sweep accent for all cards */}
         <motion.div
-          animate={
-            // AR float kept; add gentle tilt for Blockchain; subtle scale pulse for Face Mask; soft pulse default
-            isArProject
-              ? { y: [0, -3, 0] }
-              : isBlockchain
-              ? { rotate: [0, 0.4, -0.4, 0] }
-              : isFaceMask
-              ? { scale: [1, 1.01, 1] }
-              : { opacity: [1, 0.95, 1] }
-          }
-          transition={
-            isArProject
-              ? { duration: 4, repeat: Infinity, ease: "easeInOut" }
-              : isBlockchain
-              ? { duration: 6, repeat: Infinity, ease: "easeInOut" }
-              : isFaceMask
-              ? { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
-              : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
-          }
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-10"
+          style={{
+            background:
+              "repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 1px, transparent 1px, transparent 8px)",
+            maskImage:
+              "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
+          }}
+          animate={{ x: ["-10%", "110%"] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Unified header animation (soft pulse) */}
+        <motion.div
+          animate={{ opacity: [1, 0.96, 1] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
         >
           <CardHeader>
             <div className="flex items-start justify-between gap-2 mb-2">
@@ -152,7 +115,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </motion.div>
 
         <CardContent className="flex-1 flex flex-col">
-          {/* Description: keep AR shimmer; add brief reveal for others */}
+          {/* Unified description with shimmer underline */}
           <motion.p
             className="text-gray-300 mb-4 relative"
             initial={{ opacity: 0, y: 6 }}
@@ -161,19 +124,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             transition={{ duration: 0.45, delay: 0.05 }}
           >
             {project.description}
-            {isArProject && (
-              <motion.span
-                className="absolute left-0 -bottom-1 h-px w-1/3"
-                style={{ background: color }}
-                initial={{ scaleX: 0, opacity: 0.4 }}
-                whileInView={{ scaleX: 1, opacity: 0.8 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-              />
-            )}
+            <motion.span
+              className="absolute left-0 -bottom-1 h-px w-1/3"
+              style={{ background: color }}
+              initial={{ scaleX: 0, opacity: 0.4 }}
+              whileInView={{ scaleX: 1, opacity: 0.8 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            />
           </motion.p>
 
-          {/* Highlights: existing stagger logic retained; add hover accent per project */}
+          {/* Unified staggered highlights */}
           <motion.ul
             className="space-y-2 mb-4 flex-1"
             initial="hidden"
@@ -189,16 +150,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 key={i}
                 className="flex items-start gap-2 text-sm text-gray-400"
                 variants={{
-                  hidden: isArProject ? { opacity: 0, x: -10 } : { opacity: 0, y: 6 },
-                  show: { opacity: 1, x: 0, y: 0, transition: { duration: 0.35 } },
+                  hidden: { opacity: 0, y: 6 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
                 }}
-                whileHover={
-                  isBlockchain
-                    ? { x: 2, color: "#88c8ff" }
-                    : isFaceMask
-                    ? { x: 2, color: "#6fffb1" }
-                    : { scale: 1.01 }
-                }
+                whileHover={{ x: 2 }}
                 transition={{ type: "spring", stiffness: 250, damping: 18 }}
               >
                 <span style={{ color }}>▹</span>
@@ -207,7 +162,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             ))}
           </motion.ul>
 
-          {/* Tech badges: existing spring interactions; add glow per project */}
+          {/* Unified interactive tech badges with glow */}
           <motion.div
             className="flex flex-wrap gap-2"
             initial={{ opacity: 0 }}
@@ -219,17 +174,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <motion.div
                 key={i}
                 whileHover={{
-                  scale: isArProject ? 1.06 : 1.04,
-                  boxShadow: isBlockchain
-                    ? "0 0 16px rgba(0,136,255,0.25)"
-                    : isFaceMask
-                    ? "0 0 16px rgba(0,255,136,0.22)"
-                    : undefined,
+                  scale: 1.05,
+                  boxShadow: "0 0 16px rgba(255,255,255,0.18)",
                 }}
-                whileTap={{ scale: isArProject ? 0.98 : 0.99 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <Badge 
+                <Badge
                   variant="secondary"
                   className="text-xs bg-gray-800 text-gray-300"
                 >
