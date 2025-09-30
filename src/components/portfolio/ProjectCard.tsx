@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useRef, useState } from "react";
 
 interface ProjectCardProps {
   project: {
@@ -21,13 +22,51 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   const isArProject = project.id === "ar-fashion"; // Add: target AR project
 
+  // Add: parallax state and refs
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const rect = el.getBoundingClientRect();
+        // Compute progress of card within viewport (0 at top, 1 at bottom)
+        const vh = window.innerHeight || 1;
+        const progress = Math.min(1, Math.max(0, (rect.top + rect.height / 2) / vh));
+        // Map progress to a small translate range (-8px to +8px)
+        const translateY = (progress - 0.5) * 16;
+        setOffset(translateY);
+        ticking = false;
+      });
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
   return (
     <motion.div
+      ref={ref} // Attach ref
       initial={{ opacity: 0, y: 50, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
       whileHover={{ scale: 1.03, y: -6 }}
+      // Apply subtle parallax transform
+      style={{ transform: `translateY(${offset}px)` }}
     >
       <Card 
         className="bg-[#111111] border-opacity-20 h-full flex flex-col relative overflow-hidden"
