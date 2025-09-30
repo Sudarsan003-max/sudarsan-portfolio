@@ -353,14 +353,15 @@ export default function Portfolio() {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-[#00ff88] text-black hover:bg-[#00ff88]/90 font-semibold shadow-[0_0_20px_rgba(0,255,136,0.5)] hover:shadow-[0_0_30px_rgba(0,255,136,0.7)] transition-all"
-                onClick={() => window.open("mailto:sudarsananarayanan003@gmail.com")}
+              <a
+                href="mailto:sudarsananarayanan003@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-[#00ff88] text-black hover:bg-[#00ff88]/90 font-semibold shadow-[0_0_20px_rgba(0,255,136,0.5)] hover:shadow-[0_0_30px_rgba(0,255,136,0.7)]"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 sudarsananarayanan003@gmail.com
-              </Button>
+              </a>
             </div>
 
             <Separator className="my-12 bg-gray-800" />
@@ -386,6 +387,8 @@ export default function Portfolio() {
               </motion.a>
               <motion.a
                 href="mailto:sudarsananarayanan003@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 className="text-gray-400 hover:text-[#ff0080] transition-colors"
               >
