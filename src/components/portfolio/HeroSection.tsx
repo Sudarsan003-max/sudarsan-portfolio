@@ -51,13 +51,13 @@ export function HeroSection() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                // Rich golden metallic gradient
+                // Rich golden metallic gradient with shine
                 backgroundImage:
                   "linear-gradient(135deg, #9b7c28 0%, #e5c156 25%, #fff4c2 50%, #e5c156 75%, #8a6d22 100%)",
                 backgroundSize: "200% auto",
-                // Embossed stroke for 3D edge
+                // Subtle embossed stroke
                 WebkitTextStroke: "1px rgba(255, 215, 0, 0.25)",
-                // Layered shadows for depth and shine
+                // Layered depth and glow
                 textShadow: [
                   "0.5px 0.5px 0 #7a5f1a",
                   "1px 1px 0 #6d5518",
@@ -65,7 +65,7 @@ export function HeroSection() {
                   "0 0 8px rgba(255, 215, 0, 0.18)",
                   "0 0 18px rgba(255, 215, 0, 0.10)"
                 ].join(", "),
-                // Shimmer animation to mimic reflective gold
+                // Shimmer animation
                 animation: "goldShimmer 3s linear infinite",
               }}
             >
