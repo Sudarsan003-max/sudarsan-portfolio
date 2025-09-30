@@ -25,9 +25,10 @@ export const getProjects = query({
         category: "Blockchain Technology",
         description: "Created a Solidity-based DApp with HTML/CSS/JS front end, enabling secure data transfer for 500+ users.",
         highlights: [
-          "Crafted a Blockchain-based Bounty Hunter platform processing 100+ simulated transactions, with Python backend and Ethereum smart contract integration",
-          "Developed a responsive front-end in CSS & JavaScript, increasing task posting speed by 30%",
-          "Integrated Blockchain libraries to validate 100% of posted bounties and automate payouts in under 10 seconds"
+          "Created a Solidity-based DApp with an HTML/CSS/JavaScript front end, enabling secure data transfer for a broad user base.",
+          "Crafted a Blockchain-based Bounty Hunter platform handling simulated transactions, integrating a Python backend with Ethereum smart contracts.",
+          "Developed a responsive front end in CSS and JavaScript, streamlining task posting.",
+          "Integrated Blockchain libraries to validate posted bounties and automate payouts in near real time"
         ],
         tech: ["Solidity", "HTML", "CSS", "JavaScript", "Python", "Ethereum"]
       },
