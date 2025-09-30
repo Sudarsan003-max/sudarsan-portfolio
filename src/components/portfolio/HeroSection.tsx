@@ -49,10 +49,8 @@ export function HeroSection() {
           
           <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
             <span className="bg-gradient-to-r from-[#00ff88] via-[#0088ff] to-[#ff0080] bg-clip-text text-transparent">
-              SUDARSANA
+              SUDARSANA NARAYANAN U R
             </span>
-            <br />
-            <span className="text-white">NARAYANAN U R</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
