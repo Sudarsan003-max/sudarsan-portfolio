@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, ChevronDown, Sparkles } from "lucide-react";
+import { Mail, Github, Linkedin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
@@ -40,13 +40,6 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            className="inline-block mb-6"
-            animate={{ rotate: [0, 5, -5, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <Sparkles className="w-12 h-12 text-[#00ff88] mx-auto" />
-          </motion.div>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
             <span
