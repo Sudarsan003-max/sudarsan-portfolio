@@ -431,8 +431,11 @@ export default function Portfolio() {
         transition={{ duration: 0.25 }}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Scroll to top"
-        className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center h-12 w-12 rounded-full border bg-[#111111]/90 backdrop-blur-sm border-[#00ff88]/30 text-[#00ff88] shadow-[0_0_20px_rgba(0,255,136,0.25)] hover:shadow-[0_0_30px_rgba(0,255,136,0.4)] hover:bg-[#111111] transition-colors"
+        className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center h-12 w-12 rounded-full border bg-[#0b0b0b]/80 backdrop-blur-md border-[#00ff88]/30 text-[#00ff88] shadow-[0_0_18px_rgba(0,255,136,0.18)] hover:shadow-[0_0_28px_rgba(0,255,136,0.35)] hover:bg-[#0b0b0b]/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff88]/50 transition-all"
+        whileHover={{ scale: 1.06, rotate: -3 }}
+        whileTap={{ scale: 0.98, rotate: 0 }}
       >
+        <span className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: "0 0 0 0 rgba(0,255,136,0.15)" }} />
         <ArrowUp className="h-5 w-5" />
       </motion.button>
     </div>
