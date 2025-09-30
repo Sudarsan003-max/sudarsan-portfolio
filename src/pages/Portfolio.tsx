@@ -439,38 +439,107 @@ export default function Portfolio() {
           onClick={() => setResumeOpen(false)}
         >
           <div
-            className="relative max-w-5xl w-[96vw] max-h-[92vh] bg-[#0d0d0d] rounded-lg border border-[#00ff88]/30 shadow-[0_0_30px_rgba(0,255,136,0.25)] overflow-hidden"
+            className="relative w-[96vw] max-w-6xl max-h-[92vh] bg-[#0c0c0c]/95 rounded-xl border border-[#00ff88]/30 shadow-[0_0_40px_rgba(0,255,136,0.2)] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between px-4 py-3 border-b border-[#00ff88]/20">
-              <h3 className="text-lg font-semibold tracking-tight text-[#00ff88]">Resume</h3>
-              <button
-                onClick={() => setResumeOpen(false)}
-                className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition"
-                aria-label="Close resume"
-              >
-                Close
-              </button>
+            {/* Sticky header with actions */}
+            <div className="sticky top-0 z-10 flex items-center justify-between px-5 py-3 bg-[#0c0c0c]/95 border-b border-[#00ff88]/20">
+              <div className="flex items-center gap-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-[#00ff88] shadow-[0_0_8px_rgba(0,255,136,0.8)]" />
+                <h3 className="text-base md:text-lg font-semibold tracking-tight text-[#00ff88]">
+                  Resume — SUDARSANA NARAYANAN U R
+                </h3>
+              </div>
+
+              {/* Actions: zoom -, reset, +, open, close */}
+              <div className="flex items-center gap-2 text-sm">
+                <button
+                  onClick={() => {
+                    const img = document.getElementById('resume-img') as HTMLImageElement | null;
+                    if (!img) return;
+                    const current = Number(img.dataset.scale || '1');
+                    const next = Math.max(0.75, current - 0.25);
+                    img.dataset.scale = String(next);
+                    img.style.transform = `scale(${next})`;
+                  }}
+                  className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition"
+                  aria-label="Zoom out"
+                >
+                  −
+                </button>
+                <button
+                  onClick={() => {
+                    const img = document.getElementById('resume-img') as HTMLImageElement | null;
+                    if (!img) return;
+                    img.dataset.scale = '1';
+                    img.style.transform = 'scale(1)';
+                  }}
+                  className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition"
+                  aria-label="Reset zoom"
+                >
+                  100%
+                </button>
+                <button
+                  onClick={() => {
+                    const img = document.getElementById('resume-img') as HTMLImageElement | null;
+                    if (!img) return;
+                    const current = Number(img.dataset.scale || '1');
+                    const next = Math.min(3, current + 0.25);
+                    img.dataset.scale = String(next);
+                    img.style.transform = `scale(${next})`;
+                  }}
+                  className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition"
+                  aria-label="Zoom in"
+                >
+                  +
+                </button>
+
+                <a
+                  href="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition inline-flex items-center"
+                  aria-label="Open resume in new tab"
+                >
+                  Open
+                </a>
+                <button
+                  onClick={() => setResumeOpen(false)}
+                  className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition"
+                  aria-label="Close resume"
+                >
+                  Close
+                </button>
+              </div>
             </div>
 
-            <div className="p-3 overflow-auto">
-              <img
-                src="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
-                alt="Resume - SUDARSANA NARAYANAN U R"
-                className="mx-auto h-auto w-full max-w-full md:max-w-[80vw] lg:max-w-[70vw] max-h-[78vh] object-contain select-none"
-                draggable={false}
-              />
+            {/* Scrollable content */}
+            <div className="relative p-4 md:p-5 overflow-auto">
+              <div className="mx-auto w-full flex items-center justify-center">
+                <div className="relative rounded-lg overflow-hidden border border-[#00ff88]/15 bg-[#0d0d0d]">
+                  <img
+                    id="resume-img"
+                    src="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
+                    alt="Resume - SUDARSANA NARAYANAN U R"
+                    className="mx-auto h-auto w-full max-w-full md:max-w-[82vw] lg:max-w-[70vw] max-h-[76vh] object-contain select-none transition-transform duration-200 ease-out"
+                    draggable={false}
+                    // initialize scale via dataset
+                    data-scale="1"
+                  />
+                </div>
+              </div>
             </div>
 
-            <div className="flex items-center justify-between gap-2 px-4 py-2 border-t border-[#00ff88]/20 text-xs text-gray-400">
-              <span>Tip: Use pinch or browser zoom. Scroll to view full page if needed.</span>
+            {/* Footer tip */}
+            <div className="flex items-center justify-between gap-2 px-5 py-2 border-t border-[#00ff88]/20 text-xs text-gray-400">
+              <span>Tip: Use +/−/100% to zoom. You can also pinch or browser-zoom. Scroll to pan when zoomed.</span>
               <a
                 href="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-[#00ff88]"
               >
-                Open in new tab
+                Open original
               </a>
             </div>
           </div>
