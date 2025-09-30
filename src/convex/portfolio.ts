@@ -10,11 +10,11 @@ export const getProjects = query({
         title: "AR - Virtual Fashion Try On",
         date: "Apr 2025",
         category: "Augmented Reality (AR)",
-        description: "Engineered AR try-on app with Python, Unity, Blender, ARKit & ARCore for 50+ users.",
+        description: "Engineered an AR try-on app using Unity, Blender, ARKit, and ARCore to deliver immersive virtual try-on experiences across devices.",
         highlights: [
-          "Innovated an AR virtual try-on app, improving product visualization satisfaction scores by 35%",
-          "Utilized Unity and ARKit for 3D modeling and rendering, Compressing integration time by 25%",
-          "Architected a cross-platform UI with gesture controls and customization features, Elevating interaction efficiency by 40% across iOS and Android"
+          "Innovated an AR virtual try-on experience, improving product visualization and user satisfaction.",
+          "Utilized Unity and ARKit for 3D modeling and rendering, reducing integration time.",
+          "Architected a cross-platform UI with gesture controls and customization features, improving interaction efficiency across all devices"
         ],
         tech: ["Python", "Unity", "Blender", "ARKit", "ARCore"]
       },
