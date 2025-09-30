@@ -48,7 +48,18 @@ export function HeroSection() {
           </motion.div>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-[#00ff88] via-[#0088ff] to-[#ff0080] bg-clip-text text-transparent">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #b8860b 0%, #ffd700 25%, #fff7cc 50%, #ffd700 75%, #b8860b 100%)",
+                backgroundSize: "200% auto",
+                WebkitTextStroke: "1px rgba(255, 215, 0, 0.15)",
+                textShadow:
+                  "0 0 8px rgba(255,215,0,0.2), 0 0 16px rgba(255,215,0,0.15)",
+                animation: "goldShimmer 3s linear infinite",
+              }}
+            >
               SUDARSANA NARAYANAN U R
             </span>
           </h1>
