@@ -178,12 +178,18 @@ export default function Portfolio() {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-3 text-gray-300">
-                          <span className="text-[#ff0080] mt-1">▹</span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
+                      <li className="flex items-start gap-3 text-gray-300">
+                        <span className="text-[#ff0080] mt-1">▹</span>
+                        <span>Designed optimized data models and documented data flows, improving system architecture efficiency and elevating data quality by reducing errors.</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-gray-300">
+                        <span className="text-[#ff0080] mt-1">▹</span>
+                        <span>Directed exploratory analysis across diverse datasets to uncover limitations and enhance data profiling accuracy.</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-gray-300">
+                        <span className="text-[#ff0080] mt-1">▹</span>
+                        <span>Developed automation scripts to cleanse, integrate, and evaluate datasets from multiple sources, reducing processing time.</span>
+                      </li>
                     </ul>
                   </CardContent>
                 </Card>
