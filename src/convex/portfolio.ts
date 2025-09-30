@@ -52,7 +52,7 @@ export const getSkills = query({
   args: {},
   handler: async () => {
     return {
-      programming: ["Python", "C++", "SQL", "Java", "C", "Unity"],
+      programming: ["C++", "SQL", "Java", "C", "Unity"],
       web: ["React.js", "Node.js", "Express.js", "MongoDB", "Angular", "Django", "Flask", "HTML", "CSS", "REST APIs"],
       dataScience: ["NumPy", "Pandas", "Scikit-learn", "Matplotlib", "PyTorch", "Deep Learning", "Computer Vision", "Seaborn", "Excel"],
       tools: ["Git", "GitHub", "Postman", "Figma", "Power BI", "Azure", "AWS", "Microservices", "Docker", "Cloud", "Kubernetes"],
