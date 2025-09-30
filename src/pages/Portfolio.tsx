@@ -389,7 +389,13 @@ export default function Portfolio() {
               </a>
               {/* Resume Button in Contact section */}
               <a
-                onClick={() => setResumeOpen(true)}
+                onClick={() => {
+                  setResumeOpen(true);
+                  requestAnimationFrame(() => {
+                    const modal = document.getElementById("resume-modal-root");
+                    modal?.scrollIntoView({ behavior: "smooth", block: "center" });
+                  });
+                }}
                 role="button"
                 className="cursor-pointer inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-[#111111] text-white hover:bg-[#111111]/80 border border-[#00ff88]/40 shadow-[0_0_16px_rgba(0,255,136,0.25)]"
               >
@@ -435,6 +441,7 @@ export default function Portfolio() {
       {/* Resume Modal */}
       {resumeOpen && (
         <div
+          id="resume-modal-root"
           className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm"
           onClick={() => setResumeOpen(false)}
         >
@@ -498,6 +505,11 @@ export default function Portfolio() {
                   href="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    // ensure current page stays centered on the modal if user doesn't leave
+                    const modal = document.getElementById("resume-modal-root");
+                    modal?.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }}
                   className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition inline-flex items-center"
                   aria-label="Open resume in new tab"
                 >
