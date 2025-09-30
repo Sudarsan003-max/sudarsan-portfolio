@@ -1,0 +1,408 @@
+import { motion } from "framer-motion";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { 
+  Github, 
+  Mail, 
+  Linkedin, 
+  Code2, 
+  Briefcase, 
+  GraduationCap, 
+  Award,
+  Sparkles,
+  Cpu,
+  Database,
+  Globe,
+  Layers
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { useState, useEffect } from "react";
+import { HeroSection } from "@/components/portfolio/HeroSection";
+import { SkillCard } from "@/components/portfolio/SkillCard";
+import { ProjectCard } from "@/components/portfolio/ProjectCard";
+
+export default function Portfolio() {
+  const projects = useQuery(api.portfolio.getProjects);
+  const skills = useQuery(api.portfolio.getSkills);
+  const experience = useQuery(api.portfolio.getExperience);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+      {/* Animated cursor glow */}
+      <motion.div
+        className="fixed w-96 h-96 rounded-full pointer-events-none z-0 blur-3xl"
+        style={{
+          background: "radial-gradient(circle, rgba(0,255,136,0.15) 0%, transparent 70%)",
+          left: mousePosition.x - 192,
+          top: mousePosition.y - 192,
+        }}
+        animate={{
+          left: mousePosition.x - 192,
+          top: mousePosition.y - 192,
+        }}
+        transition={{ type: "spring", damping: 30, stiffness: 200 }}
+      />
+
+      <HeroSection />
+
+      {/* About Section */}
+      <section className="relative py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-12 text-center">
+              <span className="text-[#00ff88]">About</span> Me
+            </h2>
+            
+            <Card className="bg-[#111111] border-[#00ff88]/20 shadow-[0_0_30px_rgba(0,255,136,0.1)]">
+              <CardContent className="p-8">
+                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                  Final-year B.Tech CSE (AI & ML specialization) student with hands-on experience in building 
+                  and enhancing ML models, analyzing large datasets, and improving algorithm efficiency by up to 40%.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Delivered AI-powered applications including generative models, chatbots, face mask detection, 
+                  text similarity engines, and text-to-speech systems. Executed a Data Science internship at 
+                  Internzvalley, delivering data visualizations and scalable software solutions handling large-scale 
+                  datasets, boosting analysis speed by 30%.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="relative py-24 px-4 bg-[#111111]/50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-12 text-center">
+              <span className="text-[#0088ff]">Skills</span> & Expertise
+            </h2>
+
+            {skills && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <SkillCard
+                  icon={<Code2 className="w-6 h-6" />}
+                  title="Programming Languages"
+                  skills={skills.programming}
+                  color="#00ff88"
+                />
+                <SkillCard
+                  icon={<Globe className="w-6 h-6" />}
+                  title="Web Technologies"
+                  skills={skills.web}
+                  color="#0088ff"
+                />
+                <SkillCard
+                  icon={<Database className="w-6 h-6" />}
+                  title="Data Analysis & ML"
+                  skills={skills.dataScience}
+                  color="#ff0080"
+                />
+                <SkillCard
+                  icon={<Layers className="w-6 h-6" />}
+                  title="Tools & Platforms"
+                  skills={skills.tools}
+                  color="#00ff88"
+                />
+                <SkillCard
+                  icon={<Cpu className="w-6 h-6" />}
+                  title="CS Fundamentals"
+                  skills={skills.cs}
+                  color="#0088ff"
+                />
+                <SkillCard
+                  icon={<Sparkles className="w-6 h-6" />}
+                  title="Marketing & Analytics"
+                  skills={skills.marketing}
+                  color="#ff0080"
+                />
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="relative py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-12 text-center">
+              <span className="text-[#ff0080]">Experience</span>
+            </h2>
+
+            {experience && experience.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <Card className="bg-[#111111] border-[#ff0080]/20 shadow-[0_0_30px_rgba(255,0,128,0.1)] mb-6">
+                  <CardHeader>
+                    <div className="flex items-start justify-between flex-wrap gap-4">
+                      <div>
+                        <CardTitle className="text-2xl text-[#ff0080] mb-2">
+                          {exp.company}
+                        </CardTitle>
+                        <CardDescription className="text-lg text-gray-300">
+                          <Briefcase className="inline w-4 h-4 mr-2" />
+                          {exp.role}
+                        </CardDescription>
+                      </div>
+                      <Badge className="bg-[#ff0080]/20 text-[#ff0080] border-[#ff0080]/30">
+                        {exp.period}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start gap-3 text-gray-300">
+                          <span className="text-[#ff0080] mt-1">▹</span>
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="relative py-24 px-4 bg-[#111111]/50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-12 text-center">
+              <span className="text-[#00ff88]">Featured</span> Projects
+            </h2>
+
+            {projects && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {projects.map((project, index) => (
+                  <ProjectCard key={project.id} project={project} index={index} />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="relative py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-12 text-center">
+              <span className="text-[#0088ff]">Education</span>
+            </h2>
+
+            <Card className="bg-[#111111] border-[#0088ff]/20 shadow-[0_0_30px_rgba(0,136,255,0.1)]">
+              <CardHeader>
+                <div className="flex items-start justify-between flex-wrap gap-4">
+                  <div>
+                    <CardTitle className="text-2xl text-[#0088ff] mb-2">
+                      SRM INSTITUTE OF SCIENCE AND TECHNOLOGY RAMAPURAM
+                    </CardTitle>
+                    <CardDescription className="text-lg text-gray-300">
+                      <GraduationCap className="inline w-4 h-4 mr-2" />
+                      B.Tech Computer Science and Engineering - Artificial Intelligence and Machine Learning
+                    </CardDescription>
+                  </div>
+                  <div className="text-right">
+                    <Badge className="bg-[#0088ff]/20 text-[#0088ff] border-[#0088ff]/30 mb-2">
+                      2022 - Present
+                    </Badge>
+                    <p className="text-sm text-gray-400">CGPA: 8/10</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="relative py-24 px-4 bg-[#111111]/50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-12 text-center">
+              <span className="text-[#ff0080]">Certifications</span> & Achievements
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="bg-[#111111] border-[#ff0080]/20 shadow-[0_0_20px_rgba(255,0,128,0.1)]">
+                <CardContent className="p-6">
+                  <Award className="w-8 h-8 text-[#ff0080] mb-4" />
+                  <p className="text-gray-300">
+                    Completed 50+ hours of advanced courses in Data Science, NLP, and Blockchain technologies
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-[#111111] border-[#ff0080]/20 shadow-[0_0_20px_rgba(255,0,128,0.1)]">
+                <CardContent className="p-6">
+                  <Award className="w-8 h-8 text-[#ff0080] mb-4" />
+                  <p className="text-gray-300">
+                    Selected among the Top 10 projects at HACKVERSE'25 for innovative Blockchain application
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-[#111111] border-[#ff0080]/20 shadow-[0_0_20px_rgba(255,0,128,0.1)] md:col-span-2">
+                <CardContent className="p-6">
+                  <Award className="w-8 h-8 text-[#ff0080] mb-4" />
+                  <p className="text-gray-300">
+                    Implemented a Blockchain-based Bounty Hunter platform enabling secure bounty posting, 
+                    tracking, and validation via decentralized smart contracts
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Volunteering Section */}
+      <section className="relative py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-12 text-center">
+              <span className="text-[#00ff88]">Volunteering</span>
+            </h2>
+
+            <Card className="bg-[#111111] border-[#00ff88]/20 shadow-[0_0_30px_rgba(0,255,136,0.1)]">
+              <CardHeader>
+                <CardTitle className="text-2xl text-[#00ff88]">
+                  NIZHAL FOUNDATION - NGO
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Contributed to urban greening projects and community engagement efforts at Nizhal, 
+                  a non-profit dedicated to environmental preservation, demonstrating strong commitment 
+                  to sustainability and social responsibility.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="relative py-24 px-4 bg-[#111111]/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-5xl font-bold mb-8">
+              <span className="text-[#0088ff]">Let's</span> Connect
+            </h2>
+            <p className="text-xl text-gray-400 mb-12">
+              Interested in collaborating or have a project in mind? Let's talk!
+            </p>
+
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-[#00ff88] text-black hover:bg-[#00ff88]/90 font-semibold shadow-[0_0_20px_rgba(0,255,136,0.5)] hover:shadow-[0_0_30px_rgba(0,255,136,0.7)] transition-all"
+                onClick={() => window.open("mailto:sudarsananarayanan003@gmail.com")}
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                sudarsananarayanan003@gmail.com
+              </Button>
+            </div>
+
+            <Separator className="my-12 bg-gray-800" />
+
+            <div className="flex gap-6 justify-center">
+              <motion.a
+                href="https://github.com/Sudarsan003-max"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-400 hover:text-[#00ff88] transition-colors"
+              >
+                <Github className="w-8 h-8" />
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com/in/sudarsananarayanan-u-r/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-400 hover:text-[#0088ff] transition-colors"
+              >
+                <Linkedin className="w-8 h-8" />
+              </motion.a>
+              <motion.a
+                href="mailto:sudarsananarayanan003@gmail.com"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-400 hover:text-[#ff0080] transition-colors"
+              >
+                <Mail className="w-8 h-8" />
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative py-8 px-4 border-t border-gray-800">
+        <div className="max-w-6xl mx-auto text-center text-gray-500">
+          <p>© 2025 Sudarsana Narayanan U R. Built with React, Convex & Framer Motion.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
