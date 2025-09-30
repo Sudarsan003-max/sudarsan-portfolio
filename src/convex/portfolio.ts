@@ -37,9 +37,8 @@ export const getProjects = query({
         title: "Face Mask Detection",
         date: "Oct 2024",
         category: "Artificial Intelligence (AI)",
-        description: "",
+        description: "Deployed a CNN-based real-time face mask detection system using Python, OpenCV, and TensorFlow, delivering high accuracy.",
         highlights: [
-          "Deployed a CNN-based real-time face mask detection system using Python, OpenCV, and TensorFlow, delivering high accuracy.",
           "Implemented a blockchain-based validation system to ensure consistent validation across datasets and reduce false positives in fraud detection.",
           "Processed and augmented images with OpenCV to improve robustness to lighting variations.",
           "Streamlined the model for low-latency inference, enhancing real-time usability."
