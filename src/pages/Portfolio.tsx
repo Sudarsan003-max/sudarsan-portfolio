@@ -373,6 +373,13 @@ export default function Portfolio() {
                 <Mail className="mr-2 h-5 w-5" />
                 sudarsananarayanan003@gmail.com
               </a>
+              <a
+                href="tel:+918122653433"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-[#0088ff] text-black hover:bg-[#0088ff]/90 font-semibold shadow-[0_0_20px_rgba(0,136,255,0.5)] hover:shadow-[0_0_30px_rgba(0,136,255,0.7)]"
+              >
+                <span className="mr-2">📞</span>
+                +91 81226 53433
+              </a>
             </div>
 
             <Separator className="my-12 bg-gray-800" />
