@@ -23,11 +23,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 50, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ scale: 1.05, y: -10 }}
+      transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+      whileHover={{ scale: 1.03, y: -6 }}
     >
       <Card 
         className="bg-[#111111] border-opacity-20 h-full flex flex-col relative overflow-hidden"
@@ -50,10 +50,18 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           />
         )}
 
-        {/* Add: floating subtle parallax for header content on AR project */}
+        {/* Header: float subtly for AR, pulse accent for others */}
         <motion.div
-          animate={isArProject ? { y: [0, -3, 0] } : {}}
-          transition={isArProject ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : {}}
+          animate={
+            isArProject 
+              ? { y: [0, -3, 0] } 
+              : { opacity: [1, 0.95, 1] }
+          }
+          transition={
+            isArProject 
+              ? { duration: 4, repeat: Infinity, ease: "easeInOut" } 
+              : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
+          }
         >
           <CardHeader>
             <div className="flex items-start justify-between gap-2 mb-2">
@@ -77,8 +85,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </motion.div>
 
         <CardContent className="flex-1 flex flex-col">
-          {/* Add: shimmer underline animation for AR description */}
-          <p className="text-gray-300 mb-4 relative">
+          {/* Description: shimmer underline only for AR; subtle fade for all */}
+          <motion.p
+            className="text-gray-300 mb-4 relative"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+          >
             {project.description}
             {isArProject && (
               <motion.span
@@ -90,28 +104,49 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 transition={{ duration: 0.8, delay: 0.1 }}
               />
             )}
-          </p>
-          <ul className="space-y-2 mb-4 flex-1">
+          </motion.p>
+
+          {/* Highlights: staggered reveal for ALL projects; AR keeps slide-in */}
+          <motion.ul
+            className="space-y-2 mb-4 flex-1"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: { opacity: 1, transition: { staggerChildren: 0.06 } },
+            }}
+          >
             {project.highlights.map((highlight: string, i: number) => (
               <motion.li 
                 key={i} 
                 className="flex items-start gap-2 text-sm text-gray-400"
-                initial={isArProject ? { opacity: 0, x: -10 } : {}}
-                whileInView={isArProject ? { opacity: 1, x: 0 } : {}}
-                viewport={{ once: true }}
-                transition={isArProject ? { duration: 0.35, delay: 0.05 * i } : {}}
+                variants={{
+                  hidden: isArProject ? { opacity: 0, x: -10 } : { opacity: 0, y: 6 },
+                  show: { opacity: 1, x: 0, y: 0, transition: { duration: 0.35 } },
+                }}
+                whileHover={{ scale: 1.01 }}
               >
                 <span style={{ color }}>▹</span>
                 <span>{highlight}</span>
               </motion.li>
             ))}
-          </ul>
-          <div className="flex flex-wrap gap-2">
+          </motion.ul>
+
+          {/* Tech badges: interactive hover for ALL projects; AR has stronger scale */}
+          <motion.div
+            className="flex flex-wrap gap-2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             {project.tech.map((tech: string, i: number) => (
               <motion.div
                 key={i}
-                whileHover={isArProject ? { scale: 1.06 } : {}}
-                whileTap={isArProject ? { scale: 0.98 } : {}}
+                whileHover={{ scale: isArProject ? 1.06 : 1.04 }}
+                whileTap={{ scale: isArProject ? 0.98 : 0.99 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Badge 
                   variant="secondary"
@@ -121,7 +156,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 </Badge>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </CardContent>
       </Card>
     </motion.div>
