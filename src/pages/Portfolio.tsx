@@ -31,6 +31,7 @@ export default function Portfolio() {
   const experience = useQuery(api.portfolio.getExperience);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showTop, setShowTop] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -47,6 +48,12 @@ export default function Portfolio() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const open = () => setResumeOpen(true);
+    window.addEventListener("open-resume-modal", open as EventListener);
+    return () => window.removeEventListener("open-resume-modal", open as EventListener);
   }, []);
 
   return (
@@ -380,6 +387,14 @@ export default function Portfolio() {
                 <span className="mr-2">📞</span>
                 +91 81226 53433
               </a>
+              {/* Resume Button in Contact section */}
+              <a
+                onClick={() => setResumeOpen(true)}
+                role="button"
+                className="cursor-pointer inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-[#111111] text-white hover:bg-[#111111]/80 border border-[#00ff88]/40 shadow-[0_0_16px_rgba(0,255,136,0.25)]"
+              >
+                📄 View Resume
+              </a>
             </div>
 
             <Separator className="my-12 bg-gray-800" />
@@ -416,6 +431,49 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
+
+      {/* Resume Modal */}
+      {resumeOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm"
+          onClick={() => setResumeOpen(false)}
+        >
+          <div
+            className="relative max-w-5xl w-[92vw] max-h-[88vh] bg-[#0d0d0d] rounded-lg border border-[#00ff88]/30 shadow-[0_0_30px_rgba(0,255,136,0.25)] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[#00ff88]/20">
+              <h3 className="text-lg font-semibold tracking-tight text-[#00ff88]">Resume</h3>
+              <button
+                onClick={() => setResumeOpen(false)}
+                className="h-8 px-3 rounded-md border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/10 transition"
+                aria-label="Close resume"
+              >
+                Close
+              </button>
+            </div>
+            <div className="p-3 overflow-auto">
+              <img
+                src="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
+                alt="Resume - SUDARSANA NARAYANAN U R"
+                className="w-full h-auto select-none"
+                draggable={false}
+              />
+            </div>
+            <div className="flex items-center justify-between gap-2 px-4 py-2 border-t border-[#00ff88]/20 text-xs text-gray-400">
+              <span>Tip: Pinch to zoom on touch devices, or use browser zoom.</span>
+              <a
+                href="https://harmless-tapir-303.convex.cloud/api/storage/de4ae814-179e-4fe2-9d34-222a5e63a2a1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-[#00ff88]"
+              >
+                Open in new tab
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="relative py-8 px-4 border-t border-gray-800">

@@ -110,6 +110,14 @@ export function HeroSection() {
               <Linkedin className="mr-2 h-5 w-5" />
               LinkedIn
             </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88]/10 shadow-[0_0_20px_rgba(0,255,136,0.3)] hover:shadow-[0_0_30px_rgba(0,255,136,0.5)] transition-all"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-resume-modal"))}
+            >
+              📄 View Resume
+            </Button>
           </div>
 
           <motion.div
