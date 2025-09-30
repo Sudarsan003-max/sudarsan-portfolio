@@ -72,7 +72,7 @@ export default function Portfolio() {
             
             <Card className="bg-[#111111] border-[#00ff88]/20 shadow-[0_0_30px_rgba(0,255,136,0.1)]">
               <CardContent className="p-8">
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-lg text-gray-300 leading-relaxed font-semibold">
                   I'm a final-year B.Tech student in Computer Science and Engineering, specializing in AI and ML. I have hands-on experience building and refining machine learning models, analyzing large datasets, and enhancing algorithm efficiency. I've delivered AI-driven applications including generative models, chatbots, face-mask detection, semantic text-similarity engines, and text-to-speech systems. During my Data Science internship at Internzvalley, I created insightful visualizations and built scalable software to handle large datasets, improving analysis speed and enabling data‑driven decisions.
                 </p>
               </CardContent>
