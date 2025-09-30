@@ -13,7 +13,8 @@ import {
   Cpu,
   Database,
   Globe,
-  Layers
+  Layers,
+  ArrowUp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -29,6 +30,7 @@ export default function Portfolio() {
   const skills = useQuery(api.portfolio.getSkills);
   const experience = useQuery(api.portfolio.getExperience);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -36,6 +38,15 @@ export default function Portfolio() {
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowTop(window.scrollY > 300);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -405,6 +416,18 @@ export default function Portfolio() {
           <p>© 2025 Sudarsana Narayanan U R. Built with React, Convex & Framer Motion.</p>
         </div>
       </footer>
+
+      {/* Scroll To Top Button */}
+      <motion.button
+        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+        animate={showTop ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.95 }}
+        transition={{ duration: 0.25 }}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Scroll to top"
+        className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center h-12 w-12 rounded-full border bg-[#111111]/90 backdrop-blur-sm border-[#00ff88]/30 text-[#00ff88] shadow-[0_0_20px_rgba(0,255,136,0.25)] hover:shadow-[0_0_30px_rgba(0,255,136,0.4)] hover:bg-[#111111] transition-colors"
+      >
+        <ArrowUp className="h-5 w-5" />
+      </motion.button>
     </div>
   );
 }
