@@ -16,15 +16,6 @@ export default function Landing() {
       <div className="flex-1 flex flex-col items-center justify-center">
         <div className="max-w-5xl mx-auto relative px-4">
         {/* TODO: landing page goes here; replace with the landing page */}
-        <div className="flex justify-center">
-          <img
-            src="./logo.svg"
-            alt="Lock Icon"
-            width={64}
-            height={64}
-            className="rounded-lg mb-8 mt-24"
-          />
-        </div>
         <div className="flex items-center justify-center">
           <Loader className="h-8 w-8 animate-spin mr-4" />
           <a
