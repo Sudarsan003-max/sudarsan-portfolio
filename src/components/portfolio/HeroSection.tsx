@@ -52,11 +52,11 @@ export function HeroSection() {
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, #b8860b 0%, #ffd700 25%, #fff7cc 50%, #ffd700 75%, #b8860b 100%)",
+                  "linear-gradient(90deg, #00ff88 0%, #0088ff 50%, #ff0080 100%)",
                 backgroundSize: "200% auto",
-                WebkitTextStroke: "1px rgba(255, 215, 0, 0.15)",
+                WebkitTextStroke: "1px rgba(255, 255, 255, 0.08)",
                 textShadow:
-                  "0 0 8px rgba(255,215,0,0.2), 0 0 16px rgba(255,215,0,0.15)",
+                  "0 0 8px rgba(0,255,136,0.15), 0 0 12px rgba(0,136,255,0.12), 0 0 16px rgba(255,0,128,0.12)",
                 animation: "goldShimmer 3s linear infinite",
               }}
             >
