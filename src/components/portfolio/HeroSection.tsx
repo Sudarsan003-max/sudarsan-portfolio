@@ -43,7 +43,7 @@ export function HeroSection() {
           
           <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
             <span
-              className="bg-clip-text text-transparent whitespace-nowrap"
+              className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
                   "linear-gradient(90deg, #00ff88 0%, #0088ff 50%, #ff0080 100%)",
