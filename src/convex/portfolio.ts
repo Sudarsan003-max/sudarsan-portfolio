@@ -24,7 +24,7 @@ export const getProjects = query({
         title: "Blockchain - Bounty Hunter",
         date: "Mar 2025",
         category: "Blockchain Technology",
-        description: "Created a Solidity-based DApp with HTML/CSS/JS front end, enabling secure data transfer for 500+ users.",
+        description: "",
         highlights: [
           "Created a Solidity-based DApp with an HTML/CSS/JavaScript front end, enabling secure data transfer for a broad user base.",
           "Crafted a Blockchain-based Bounty Hunter platform handling simulated transactions, integrating a Python backend with Ethereum smart contracts.",
