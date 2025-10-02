@@ -65,7 +65,9 @@ export function HeroSection() {
 
           <div className="flex flex-wrap gap-4 justify-center mb-12">
             <a
-              href="mailto:sudarsananarayanan003@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=sudarsananarayanan003@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-[#00ff88] text-black hover:bg-[#00ff88]/90 font-semibold shadow-[0_0_20px_rgba(0,255,136,0.5)] hover:shadow-[0_0_30px_rgba(0,255,136,0.7)]"
             >
               <Mail className="mr-2 h-5 w-5" />
