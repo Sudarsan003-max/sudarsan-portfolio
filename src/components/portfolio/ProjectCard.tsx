@@ -113,14 +113,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               {project.category}
             </CardDescription>
             
-            {/* GitHub link - centered and prominent */}
+            {/* GitHub link - centered and prominent with enhanced visual flair */}
             {project.githubUrl && (
               <div className="flex justify-center mt-4">
                 <motion.a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border transition-all relative overflow-hidden"
                   style={{
                     borderColor: color,
                     backgroundColor: `${color}15`,
@@ -129,13 +129,37 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                   }}
                   whileHover={{ 
                     scale: 1.08,
+                    rotate: -1,
                     boxShadow: `0 0 25px ${color}50`
                   }}
-                  whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95, rotate: 0 }}
+                  animate={{
+                    boxShadow: [
+                      `0 0 15px ${color}30`,
+                      `0 0 20px ${color}40`,
+                      `0 0 15px ${color}30`
+                    ]
+                  }}
+                  transition={{
+                    boxShadow: {
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }
+                  }}
                   aria-label="View on GitHub"
                 >
-                  <Github className="w-5 h-5" />
-                  <span className="font-semibold text-sm">View on GitHub</span>
+                  {/* Shimmer effect overlay */}
+                  <motion.div
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                      background: `linear-gradient(90deg, transparent, ${color}40, transparent)`
+                    }}
+                    animate={{ x: ["-100%", "200%"] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  />
+                  <Github className="w-5 h-5 relative z-10" />
+                  <span className="font-semibold text-sm relative z-10">View on GitHub</span>
                 </motion.a>
               </div>
             )}
