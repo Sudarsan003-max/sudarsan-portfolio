@@ -96,19 +96,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="flex items-start justify-between gap-2 mb-2">
               <div className="flex items-center gap-2 flex-1">
                 <CardTitle className="text-xl font-bold tracking-tight" style={{ color }}>{project.title}</CardTitle>
-                {project.githubUrl && (
-                  <motion.a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.15 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="text-gray-400 hover:text-white transition-colors"
-                    aria-label="View on GitHub"
-                  >
-                    <Github className="w-5 h-5" />
-                  </motion.a>
-                )}
               </div>
               <Badge 
                 variant="outline" 
@@ -125,6 +112,33 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <CardDescription className="text-sm text-gray-300 font-semibold">
               {project.category}
             </CardDescription>
+            
+            {/* GitHub link - centered and prominent */}
+            {project.githubUrl && (
+              <div className="flex justify-center mt-4">
+                <motion.a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border transition-all"
+                  style={{
+                    borderColor: color,
+                    backgroundColor: `${color}15`,
+                    color: color,
+                    boxShadow: `0 0 15px ${color}30`
+                  }}
+                  whileHover={{ 
+                    scale: 1.08,
+                    boxShadow: `0 0 25px ${color}50`
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="View on GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                  <span className="font-semibold text-sm">View on GitHub</span>
+                </motion.a>
+              </div>
+            )}
           </CardHeader>
         </motion.div>
 
