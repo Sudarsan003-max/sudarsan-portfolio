@@ -110,14 +110,14 @@ export function HeroSection() {
               <Linkedin className="mr-2 h-5 w-5" />
               LinkedIn
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88]/10 shadow-[0_0_20px_rgba(0,255,136,0.3)] hover:shadow-[0_0_30px_rgba(0,255,136,0.5)] transition-all"
-              onClick={() => window.open("https://drive.google.com/file/d/1hCAkN2pvNud6QLglclojTfQxNPbcQBC0/view?usp=sharing", "_blank")}
+            <a
+              href="https://drive.google.com/file/d/1hCAkN2pvNud6QLglclojTfQxNPbcQBC0/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 h-10 px-6 border border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88]/10 shadow-[0_0_20px_rgba(0,255,136,0.3)] hover:shadow-[0_0_30px_rgba(0,255,136,0.5)] transition-all"
             >
               📄 View Resume
-            </Button>
+            </a>
           </div>
 
           <motion.div
