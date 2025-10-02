@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useRef, useState } from "react";
+import { Github } from "lucide-react";
 
 interface ProjectCardProps {
   project: {
@@ -12,6 +13,7 @@ interface ProjectCardProps {
     description: string;
     highlights: string[];
     tech: string[];
+    githubUrl?: string;
   };
   index: number;
 }
@@ -20,9 +22,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const colors = ["#00ff88", "#0088ff", "#ff0080"];
   const color = colors[index % colors.length];
 
-  const isArProject = project.id === "ar-fashion"; // Add: target AR project
+  const isArProject = project.id === "ar-fashion";
 
-  // Add: parallax state and refs
   const ref = useRef<HTMLDivElement | null>(null);
   const [offset, setOffset] = useState(0);
 
@@ -38,10 +39,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
       requestAnimationFrame(() => {
         const rect = el.getBoundingClientRect();
-        // Compute progress of card within viewport (0 at top, 1 at bottom)
         const vh = window.innerHeight || 1;
         const progress = Math.min(1, Math.max(0, (rect.top + rect.height / 2) / vh));
-        // Map progress to a small translate range (-8px to +8px)
         const translateY = (progress - 0.5) * 16;
         setOffset(translateY);
         ticking = false;
@@ -95,7 +94,22 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         >
           <CardHeader>
             <div className="flex items-start justify-between gap-2 mb-2">
-              <CardTitle className="text-xl font-bold tracking-tight" style={{ color }}>{project.title}</CardTitle>
+              <div className="flex items-center gap-2 flex-1">
+                <CardTitle className="text-xl font-bold tracking-tight" style={{ color }}>{project.title}</CardTitle>
+                {project.githubUrl && (
+                  <motion.a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-gray-400 hover:text-white transition-colors"
+                    aria-label="View on GitHub"
+                  >
+                    <Github className="w-5 h-5" />
+                  </motion.a>
+                )}
+              </div>
               <Badge 
                 variant="outline" 
                 className="text-xs shrink-0"

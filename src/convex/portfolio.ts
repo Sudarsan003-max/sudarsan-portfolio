@@ -16,7 +16,8 @@ export const getProjects = query({
           "Utilized Unity and ARKit for 3D modeling and rendering, reducing integration time.",
           "Architected a cross-platform UI with gesture controls and customization features, improving interaction efficiency across all devices"
         ],
-        tech: ["Python", "Unity", "Blender", "ARKit", "ARCore"]
+        tech: ["Python", "Unity", "Blender", "ARKit", "ARCore"],
+        githubUrl: undefined
       },
       {
         id: "blockchain-bounty",
@@ -30,7 +31,8 @@ export const getProjects = query({
           "Developed a responsive front end in CSS and JavaScript, streamlining task posting.",
           "Integrated Blockchain libraries to validate posted bounties and automate payouts in near real time"
         ],
-        tech: ["Solidity", "HTML", "CSS", "JavaScript", "Python", "Ethereum"]
+        tech: ["Solidity", "HTML", "CSS", "JavaScript", "Python", "Ethereum"],
+        githubUrl: undefined
       },
       {
         id: "face-mask-detection",
@@ -43,7 +45,8 @@ export const getProjects = query({
           "Processed and augmented images with OpenCV to improve robustness to lighting variations.",
           "Streamlined the model for low-latency inference, enhancing real-time usability."
         ],
-        tech: ["Python", "OpenCV", "TensorFlow", "CNN", "Blockchain"]
+        tech: ["Python", "OpenCV", "TensorFlow", "CNN", "Blockchain"],
+        githubUrl: "https://github.com/Sudarsan003-max/FACE-MASK-DETECTOR"
       }
     ];
   }
