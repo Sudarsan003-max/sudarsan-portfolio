@@ -32,7 +32,7 @@ export const getProjects = query({
           "Integrated Blockchain libraries to validate posted bounties and automate payouts in near real time"
         ],
         tech: ["Solidity", "HTML", "CSS", "JavaScript", "Python", "Ethereum"],
-        githubUrl: undefined
+        githubUrl: "https://github.com/Sudarsan003-max/Blockchain---Bounty-Hunter"
       },
       {
         id: "face-mask-detection",
