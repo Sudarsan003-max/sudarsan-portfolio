@@ -114,7 +114,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               className="border-[#00ff88] text-[#00ff88] hover:bg-[#00ff88]/10 shadow-[0_0_20px_rgba(0,255,136,0.3)] hover:shadow-[0_0_30px_rgba(0,255,136,0.5)] transition-all"
-              onClick={() => window.open("https://drive.google.com/file/d/1Vb-y6emDBkgSjE6nUYTa3JroEDbDIVwP/view?usp=sharing", "_blank")}
+              onClick={() => window.open("https://drive.google.com/file/d/1hCAkN2pvNud6QLglclojTfQxNPbcQBC0/view?usp=sharing", "_blank")}
             >
               📄 View Resume
             </Button>

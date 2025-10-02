@@ -440,7 +440,7 @@ export default function Portfolio() {
               </a>
               {/* Resume Button in Contact section */}
               <a
-                href="https://drive.google.com/file/d/1Vb-y6emDBkgSjE6nUYTa3JroEDbDIVwP/view?usp=sharing"
+                href="https://drive.google.com/file/d/1hCAkN2pvNud6QLglclojTfQxNPbcQBC0/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-pointer inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-[#111111] text-white hover:bg-[#111111]/80 border border-[#00ff88]/40 shadow-[0_0_16px_rgba(0,255,136,0.25)]"
