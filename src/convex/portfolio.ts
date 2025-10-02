@@ -78,7 +78,8 @@ export const getExperience = query({
           "Designed 3 optimized data models and documented 5+ data flows, boosting system architecture efficiency by 15% and enhancing data quality by preventing errors by 20%",
           "Directed exploratory analysis on 10+ datasets to identify limitations advancing profiling precision by 30%",
           "Developed 4 automation scripts to cleanse, integrate, and evaluate datasets from 6+ sources, reducing processing time by 40%"
-        ]
+        ],
+        githubUrl: "https://github.com/Sudarsan003-max/Major-Project-Internzvalley"
       }
     ];
   }

@@ -193,6 +193,33 @@ export default function Portfolio() {
                         {exp.period}
                       </Badge>
                     </div>
+                    
+                    {/* GitHub link - centered and prominent */}
+                    {exp.githubUrl && (
+                      <div className="flex justify-center mt-4">
+                        <motion.a
+                          href={exp.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border transition-all"
+                          style={{
+                            borderColor: "#ff0080",
+                            backgroundColor: "#ff008015",
+                            color: "#ff0080",
+                            boxShadow: "0 0 15px #ff008030"
+                          }}
+                          whileHover={{ 
+                            scale: 1.08,
+                            boxShadow: "0 0 25px #ff008050"
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                          aria-label="View on GitHub"
+                        >
+                          <Github className="w-5 h-5" />
+                          <span className="font-semibold text-sm">View on GitHub</span>
+                        </motion.a>
+                      </div>
+                    )}
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
