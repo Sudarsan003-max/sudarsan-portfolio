@@ -16,16 +16,9 @@ export default function Landing() {
       <div className="flex-1 flex flex-col items-center justify-center">
         <div className="max-w-5xl mx-auto relative px-4">
         {/* TODO: landing page goes here; replace with the landing page */}
-        <div className="flex items-center justify-center">
-          <Loader className="h-8 w-8 animate-spin mr-4" />
-          <a
-            href="https://vly.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary underline hover:text-primary/80 transition-colors"
-          >
-            vly.ai
-          </a>&nbsp; is generating your project...
+        <div className="flex items-center justify-center gap-3 text-primary">
+          <Loader className="h-8 w-8 animate-spin" />
+          <span className="font-semibold tracking-tight">Sudarsan Portfolio is loading...</span>
         </div>
         </div>
       </div>
