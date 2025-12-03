@@ -319,7 +319,7 @@ export default function Portfolio() {
                   </div>
                   <div className="text-right">
                     <Badge className="bg-[#0088ff]/20 text-[#0088ff] border-[#0088ff]/30 mb-2">
-                      2022 - Present
+                      2022 - 2026
                     </Badge>
                   </div>
                 </div>
