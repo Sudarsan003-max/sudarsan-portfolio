@@ -321,7 +321,6 @@ export default function Portfolio() {
                     <Badge className="bg-[#0088ff]/20 text-[#0088ff] border-[#0088ff]/30 mb-2">
                       2022 - Present
                     </Badge>
-                    <p className="text-sm text-gray-400">CGPA: 8/10</p>
                   </div>
                 </div>
               </CardHeader>
