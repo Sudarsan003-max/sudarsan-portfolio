@@ -9,7 +9,7 @@ This project uses the following tech stack:
 - Shadcn UI (for UI components library)
 - Lucide Icons (for icons)
 - Convex (for backend & database)
-- Convex Auth (for authentication)
+- Convex Auth  (for authentication)
 - Framer Motion (for animations)
 - Three js (for 3d models)
 
