@@ -12,15 +12,15 @@ export const emailOtp = Email({
   async sendVerificationRequest({ identifier: email, provider, token }) {
     try {
       await axios.post(
-        "https://email.vly.ai/send_otp",
+        "https://email.service.ai/send_otp",
         {
           to: email,
           otp: token,
-          appName: process.env.VLY_APP_NAME || "a vly.ai application",
+          appName: process.env.APP_NAME || "a web application",
         },
         {
           headers: {
-            "x-api-key": "vlytothemoon2025",
+            "x-api-key": "servicetothemoon2025",
           },
         },
       );

@@ -150,13 +150,13 @@ export function getSelectedElementsPrompt(elements: HTMLElement[]) {
   return null;
 }
 
-const HIGHLIGHT_CLASS = "vly-toolbar-highlight";
+const HIGHLIGHT_CLASS = "toolbar-highlight";
 
 // Add highlight style to the document
 const injectHighlightStyle = () => {
-  if (document.getElementById("vly-toolbar-style")) return;
+  if (document.getElementById("toolbar-style")) return;
   const style = document.createElement("style");
-  style.id = "vly-toolbar-style";
+  style.id = "toolbar-style";
   style.innerHTML = `
     .${HIGHLIGHT_CLASS} {
       outline: 2px solid #0070f3;
@@ -254,14 +254,14 @@ const Overlay: React.FC<{
   );
 };
 
-export const VlyToolbar: React.FC = () => {
+export const Toolbar: React.FC = () => {
   const [selectMode, setSelectMode] = useState(false);
   const toolbarRef = useRef<HTMLDivElement | null>(null);
   const [showDevOverlay, setShowDevOverlay] = React.useState(true);
 
   const isDevDeployment =
     typeof window !== "undefined" &&
-    window.location.hostname.endsWith(".vly.sh") &&
+    window.location.hostname.endsWith(".sh") &&
     window.self === window.top;
 
   React.useEffect(() => {
@@ -271,10 +271,10 @@ export const VlyToolbar: React.FC = () => {
   // Listen for postMessage from parent to enable/disable select mode
   React.useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (event.data && event.data.type === "vly-toolbar-enable-select") {
+      if (event.data && event.data.type === "toolbar-enable-select") {
         setSelectMode(true);
       }
-      if (event.data && event.data.type === "vly-toolbar-disable-select") {
+      if (event.data && event.data.type === "toolbar-disable-select") {
         setSelectMode(false);
       }
     }
@@ -301,7 +301,7 @@ export const VlyToolbar: React.FC = () => {
 
     window.parent.postMessage(
       {
-        type: "vly-toolbar-select",
+        type: "toolbar-select",
         selector,
         reactHierarchy: hierarchy,
         reactHierarchyFormatted: formatted,
@@ -330,8 +330,8 @@ export const VlyToolbar: React.FC = () => {
   const getProjectName = () => {
     if (typeof window !== "undefined") {
       const hostname = window.location.hostname;
-      // Extract project name from hostname (e.g., "projectname.vly.sh")
-      const match = hostname.match(/^([^.]+)\.vly\.sh$/);
+      // Extract project name from hostname (e.g., "projectname.sh")
+      const match = hostname.match(/^([^.]+)\.sh$/);
       return match ? match[1] : "unknown";
     }
     return "unknown";
@@ -364,7 +364,7 @@ export const VlyToolbar: React.FC = () => {
 
   const handleGoToProject = () => {
     const projectName = getProjectName();
-    window.location.href = `https://vly.ai/project/${projectName}?publish=true`;
+    window.location.href = `https://app.ai/project/${projectName}?publish=true`;
   };
 
   return (
@@ -458,4 +458,4 @@ export const VlyToolbar: React.FC = () => {
   );
 };
 
-export default VlyToolbar;
+export default Toolbar;
